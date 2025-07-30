@@ -1,0 +1,12 @@
+{
+  "useSmartLocator": true,
+  "runWithSmartLocator": false,
+  "cachePath": "cache/locator_cache.json",
+  "openApiModel": "gpt-4o-mini",
+  "openApiKey": "",
+  "cacheExpirationDays": 2,
+  "maxRetries": 3,
+  "timeout": 30000,
+  "enableLogging": true,
+  "logLevel": "info"
+}

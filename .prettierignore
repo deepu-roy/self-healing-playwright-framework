@@ -1,0 +1,9 @@
+libs/accounting-models/src
+libs/auth/src/models
+libs/auth/src/serializers
+libs/blocks-models/src
+libs/models/src
+.yarn/
+
+# this was added because of pretty quick. https://github.com/azz/pretty-quick/issues/95
+src/ALF/frontend/tools/create-ngrx-store/src/create-ngrx-store/files

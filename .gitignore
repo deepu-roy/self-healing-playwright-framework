@@ -1,0 +1,52 @@
+# Playwright Test Results and Reports
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Screenshots and Videos
+/screenshots/
+/videos/
+
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# VS Code settings (optional - remove if you want to share settings)
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Build outputs
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+cache/locator_cache.json
