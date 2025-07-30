@@ -1,15 +1,15 @@
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const playwright = require('eslint-plugin-playwright');
+const eslint = require("@eslint/js");
+const tseslint = require("typescript-eslint");
+const playwright = require("eslint-plugin-playwright");
 
 module.exports = [
     // Apply to all files
     {
-        files: ['**/*.{js,ts}'],
+        files: ["**/*.{js,ts}"],
         languageOptions: {
-            ecmaVersion: 'latest',
-            sourceType: 'module',
-        },
+            ecmaVersion: "latest",
+            sourceType: "module"
+        }
     },
 
     // ESLint recommended rules
@@ -20,21 +20,12 @@ module.exports = [
 
     // Playwright recommended rules for test files
     {
-        files: ['src/**/*.ts'],
-        ...playwright.configs['flat/recommended'],
+        files: ["src/**/*.ts"],
+        ...playwright.configs["flat/recommended"]
     },
 
     // Global ignores
     {
-        ignores: [
-            'node_modules/',
-            'dist/',
-            'build/',
-            'coverage/',
-            'playwright-report/',
-            'test-results/',
-            'cache/',
-            '*.js'
-        ],
-    },
+        ignores: ["node_modules/", "dist/", "build/", "coverage/", "playwright-report/", "test-results/", "cache/", "*.js"]
+    }
 ];
