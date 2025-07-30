@@ -70,6 +70,7 @@ export class LocalCache {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private isValidCacheEntry(entry: any): entry is CacheEntry {
         return (
             entry &&
