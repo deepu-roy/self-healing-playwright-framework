@@ -20,7 +20,7 @@ module.exports = [
 
     // Playwright recommended rules for test files
     {
-        files: ["src/**/*.ts"],
+        files: ["src/**/*.ts", "tests/**/*.ts"],
         ...playwright.configs["flat/recommended"]
     },
 
