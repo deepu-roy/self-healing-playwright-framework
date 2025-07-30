@@ -1,0 +1,62 @@
+name: Build Test Pipeline
+
+on:
+    push:
+        branches: [main]
+
+env:
+    CI: true
+    USE_SMART_LOCATOR: true
+    RUN_WITH_SMART_LOCATOR: false
+    OPENAI_MODEL: gpt-4o-mini
+    CACHE_PATH: cache/locator_cache.json
+
+jobs:
+    build-test:
+        timeout-minutes: 60
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm run install-deps
+
+            - name: Run validation (lint and format checks)
+              run: npm run validate
+
+            - name: Run Playwright tests
+              run: npm test
+              env:
+                  OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+            - name: Upload Playwright Report
+              uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: playwright-report
+                  path: playwright-report/
+                  retention-days: 30
+
+            - name: Upload Test Results
+              uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: test-results
+                  path: test-results/
+                  retention-days: 30
+
+            - name: Upload Screenshots
+              uses: actions/upload-artifact@v4
+              if: failure()
+              with:
+                  name: screenshots
+                  path: screenshots/
+                  retention-days: 7
